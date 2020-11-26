@@ -162,22 +162,6 @@ public class EstudianteController {
 		estudianteService.eliminar(id);
 		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
-	/*
-	 * ----------------------------------------------------------------------------------------------------------
-	 */
-	@GetMapping("/listarConsulta/{nombre}/{colegio}")
-	@ApiOperation(value="Metodo Listar que proporciona los datos de un estudiante por medio "
-			+ " del envio del parametro NOMBRE y COLEGIO", response=EstudianteDto.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Lista encontrada Correctamente"),
-			@ApiResponse(code = 401, message = "Necesita algun inicio de sesion"),
-			@ApiResponse(code = 403, message = "Contraseña Invalida"),
-			@ApiResponse(code = 404, message = "No se encuentra disponible una lista con ese nombre")			
-	})
-	public ResponseEntity<EstudianteDto> listarConsultaJpql(@Valid @PathVariable String nombre, @PathVariable String colegio){
-		EstudianteDto estudiante = estudianteService.findByNombreEstudianteAndColegioEstudiante(nombre, colegio);
-			return new ResponseEntity<EstudianteDto>(estudiante, HttpStatus.OK);
 
-	}
 	
 }
